@@ -9,12 +9,19 @@
         --darkGray: rgb(85, 85, 85);
       }
 
+      * {
+        box-sizing: border-box;
+      }
+
       body {
         text-align: center;
+        margin: 1em 3em;
+        padding: 0 1.5em;
       }
 
       h1 {
         font-size: 2.5em;
+        margin: 0;
       }
 
       small {
@@ -70,46 +77,48 @@
     </style>
   </head>
   <body>
-    <header>
-      <h1>
-        It has been
-        <div class="counter inline-when-big"></div>
-        since the last COVID-19 relief from the US government.
-      </h1>
-      <small
-        >source:
+    <div id="app">
+      <header>
+        <h1>
+          It has been
+          <div class="counter inline-when-big"></div>
+          since the last COVID-19 relief from the US government.
+        </h1>
+        <small
+          >source:
+          <a
+            href="https://www.cnbc.com/2020/03/26/coronavirus-stimulus-checks-will-come-within-three-weeks-mnuchin-says.html"
+            target="_blank"
+            rel="nofollow"
+            >cnbc.com</a
+          ></small
+        >
+      </header>
+
+      <section id="math">
+        <p>
+          If you received <b>$1,200</b> in relief
+          <span class="counter"></span> ago, you've had
+          <span id="reliefPerDay"></span> <i>per day</i> in relief.
+        </p>
+      </section>
+
+      <section id="info">
+        <p>
+          Demand better from the people who are supposed to be serving and
+          representing us.
+        </p>
+      </section>
+
+      <footer>
         <a
-          href="https://www.cnbc.com/2020/03/26/coronavirus-stimulus-checks-will-come-within-three-weeks-mnuchin-says.html"
+          href="https://github.com/kyleratti/days-since-relief"
           target="_blank"
           rel="nofollow"
-          >cnbc.com</a
-        ></small
-      >
-    </header>
-
-    <section id="math">
-      <p>
-        If you received <b>$1,200</b> in relief
-        <span class="counter"></span> ago, you've had
-        <span id="reliefPerDay"></span> <i>per day</i> in relief.
-      </p>
-    </section>
-
-    <section id="info">
-      <p>
-        Demand better from the people who are supposed to be serving and
-        representing us.
-      </p>
-    </section>
-
-    <footer>
-      <a
-        href="https://github.com/kyleratti/days-since-relief"
-        target="_blank"
-        rel="nofollow"
-        >github</a
-      >
-    </footer>
+          >github</a
+        >
+      </footer>
+    </div>
 
     <script>
       const [counters, reliefPerDay] = [
