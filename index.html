@@ -43,6 +43,7 @@
       .counter::after {
         margin-left: 0.25em;
         content: "days (!!)";
+        font-style: italic;
       }
 
       #reliefPerDay {
@@ -60,13 +61,20 @@
       footer {
         font-size: 0.8em;
       }
+
+      @media screen and (min-width: 900px) {
+        .inline-when-big {
+          display: inline-block;
+        }
+      }
     </style>
   </head>
   <body>
     <header>
       <h1>
-        It has been <span class="counter"></span> since the last COVID-19 relief
-        from the US government.
+        It has been
+        <div class="counter inline-when-big"></div>
+        since the last COVID-19 relief from the US government.
       </h1>
       <small
         >source:
