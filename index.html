@@ -156,7 +156,8 @@
       // source: https://www.cnbc.com/2020/03/26/coronavirus-stimulus-checks-will-come-within-three-weeks-mnuchin-says.html
       const lastRelief = new Date(2020, 03, 26);
       const daysSince = Math.ceil(
-        (new Date().getTime() - lastRelief.getTime()) / (1000 * 3600 * 24)
+        (new Date().getTime() - lastRelief.getTime()) / (1000 * 3600 * 24) -
+          lastRelief.getTimezoneOffset() / (24 * 60)
       );
 
       for (let counter of counters) {
