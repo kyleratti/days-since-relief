@@ -19,6 +19,7 @@
     <style>
       :root {
         --darkGray: rgb(85, 85, 85);
+        --goodBlue: rgb(20, 123, 220);
       }
 
       * {
@@ -26,9 +27,16 @@
       }
 
       body {
+        font-family: Georgia, "Times New Roman", Times, serif;
         text-align: center;
-        margin: 1em 3em;
+        margin: 1em 0em;
         padding: 0 1.5em;
+        background-color: rgb(255, 251, 245);
+      }
+
+      h1,
+      h2 {
+        font-weight: normal;
       }
 
       h1 {
@@ -46,12 +54,17 @@
       }
 
       a:hover {
-        color: blue;
+        color: var(--goodBlue);
       }
 
       a:active,
       a:focus {
-        border: 1px solid blue;
+        border: 1px solid var(--goodBlue);
+      }
+
+      .counter::after,
+      #reliefPerDay::after {
+        margin-left: 0.25em;
       }
 
       .counter {
@@ -60,12 +73,12 @@
       }
 
       .counter::after {
-        margin-left: 0.25em;
         content: "days (!!)";
         font-style: italic;
       }
 
       #reliefPerDay {
+        color: var(--goodBlue);
         font-weight: bold;
       }
 
@@ -73,15 +86,83 @@
         content: "$";
       }
 
-      #math {
-        font-size: 1.5em;
+      #reliefPerDay::after {
+        content: "per day";
+        font-style: italic;
+      }
+
+      #news {
+        max-width: fit-content;
+        margin: 0 auto;
+      }
+
+      #news dl {
+        list-style: none;
+        font-size: 0.9em;
+      }
+
+      #news dl dt,
+      #news dl dd {
+        display: block;
+      }
+
+      #news dl dt {
+        grid-column-start: 1;
+        font-weight: bold;
+        text-align: left;
+      }
+
+      #news dl dd {
+        /* margin: 1em 0; */
+        margin: 0;
+        margin-bottom: 1em;
+        text-align: left;
+      }
+
+      #news dl dd::after {
+        display: block;
+        content: "";
       }
 
       footer {
         font-size: 0.8em;
+        opacity: 0.5;
+      }
+
+      footer ul {
+        list-style: none;
+        margin: 1em 0;
+        padding: 0;
+      }
+
+      footer ul li {
+        display: inline-block;
+        margin: 0 0.5em;
+        padding: 0;
+      }
+
+      @media screen and (min-width: 700px) {
+        #news dl {
+          display: grid;
+          grid-template-columns: 1fr auto;
+        }
+
+        #news dl dd {
+          margin: 0 1em;
+          grid-column-start: 2;
+        }
+
+        #news dl dt,
+        #news dl dd {
+          display: inline-block;
+        }
       }
 
       @media screen and (min-width: 900px) {
+        body {
+          margin: 1em 3em;
+        }
+
         .inline-when-big {
           display: inline-block;
         }
@@ -110,23 +191,59 @@
           <div class="counter inline-when-big"></div>
           since the last COVID-19 relief from the US government.
         </h1>
-        <small
-          >source:
-          <a
-            href="https://www.cnbc.com/2020/03/26/coronavirus-stimulus-checks-will-come-within-three-weeks-mnuchin-says.html"
-            target="_blank"
-            rel="nofollow"
-            >cnbc.com</a
-          ></small
-        >
+        <h2>
+          That's
+          <abbr title="Assuming you received $1,200"
+            ><span id="reliefPerDay"></span></abbr
+          >.
+        </h2>
       </header>
 
-      <section id="math">
-        <p>
-          If you received <b>$1,200</b> in relief
-          <span class="counter"></span> ago, you've had
-          <span id="reliefPerDay"></span> <i>per day</i> in relief.
-        </p>
+      <section id="news">
+        <dl>
+          <dt>2020-11-19</dt>
+          <dd>
+            <a
+              href="https://time.com/5913934/stalled-covid-relief-bill/"
+              target="_blank"
+              rel="nofollow"
+              >COVID-19 Cases Are Spiking, and the Senate Is on Vacation</a
+            >
+          </dd>
+
+          <dt>2020-08-13</dt>
+          <dd>
+            <a
+              href="https://www.rollcall.com/2020/08/13/senate-breaks-for-august-recess-with-no-coronavirus-deal-in-sight/"
+              target="_blank"
+              rel="nofollow"
+              >Senate breaks for August recess with no coronavirus deal in
+              sight</a
+            >
+          </dd>
+
+          <dd>&hellip;</dd>
+
+          <dt>2020-05-15</dt>
+          <dd>
+            <a
+              href="https://appropriations.house.gov/news/press-releases/house-passes-heroes-act"
+              target="_blank"
+              rel="nofollow"
+              >House Passes The HEROES Act</a
+            >
+          </dd>
+
+          <dt>2020-03-27</dt>
+          <dd>
+            <a
+              href="https://en.wikipedia.org/wiki/CARES_Act"
+              target="_blank"
+              rel="nofollow"
+              >CARES Act is passed and signed into law</a
+            >
+          </dd>
+        </dl>
       </section>
 
       <section id="info">
@@ -137,12 +254,17 @@
       </section>
 
       <footer>
-        <a
-          href="https://github.com/kyleratti/days-since-relief"
-          target="_blank"
-          rel="nofollow"
-          >github</a
-        >
+        <ul>
+          <li>
+            you can do more than our government has -
+            <a
+              href="https://github.com/kyleratti/days-since-relief"
+              target="_blank"
+              rel="nofollow"
+              >contribute on github</a
+            >!
+          </li>
+        </ul>
       </footer>
     </div>
 
