@@ -158,6 +158,10 @@
         padding: 0;
       }
 
+      .hidden-when-small {
+        display: none !important;
+      }
+
       @media screen and (min-width: 700px) {
         h1 {
           font-size: 2.5em;
@@ -176,6 +180,10 @@
         #news dl dt,
         #news dl dd {
           display: inline-block;
+        }
+
+        .hidden-when-small {
+          display: inline-block !important;
         }
       }
 
@@ -235,7 +243,7 @@
 
       <section id="news">
         <dl>
-          <dt class="center">&hellip;</dt>
+          <dt class="center hidden-when-small">&hellip;</dt>
           <dd class="spacer">&hellip; ??</dd>
 
           <dt>2021-03-11</dt>
@@ -312,7 +320,7 @@
             >
           </dd>
 
-          <dt class="center">&hellip;</dt>
+          <dt class="center hidden-when-small">&hellip;</dt>
           <dd class="spacer">&hellip; ??</dd>
 
           <dt>2020-05-15</dt>
